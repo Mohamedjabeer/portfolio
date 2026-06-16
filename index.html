@@ -38,7 +38,7 @@
       opacity: 0.8;
     }
 
-    /* ===== CONTENT WRAPPER (above canvas) ===== */
+    /* ===== CONTENT WRAPPER ===== */
     .content-wrapper {
       position: relative;
       z-index: 1;
@@ -157,6 +157,7 @@
     section:nth-child(6) { animation-delay: 0.75s; }
     section:nth-child(7) { animation-delay: 0.9s; }
     section:nth-child(8) { animation-delay: 1.05s; }
+    section:nth-child(9) { animation-delay: 1.2s; }
 
     .section-title {
       font-size: 2.2rem;
@@ -182,7 +183,7 @@
     /* ===== HERO ===== */
     .hero {
       text-align: center;
-      padding: 60px 0 40px;
+      padding: 60px 0 20px;
       animation: fadeInUp 1s ease 0.1s both;
       position: relative;
       z-index: 2;
@@ -232,7 +233,7 @@
       font-size: 1.1rem;
       color: #94a3b8;
       font-weight: 500;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     /* ===== WELCOME TICKER ===== */
@@ -241,7 +242,7 @@
       backdrop-filter: blur(12px);
       padding: 14px 0;
       border-radius: 60px;
-      margin: 0 auto 1.5rem auto;
+      margin: 0 auto 1rem auto;
       max-width: 98%;
       overflow: hidden;
       border: 1px solid rgba(59, 130, 246, 0.15);
@@ -294,6 +295,152 @@
       100% { transform: translateX(-50%); }
     }
 
+    /* ===== SERVICES TITLE & AUTO-BADGE ===== */
+.services-carousel-wrapper {
+  max-width: 95%;
+  margin: 1.2rem auto 0.5rem auto;
+}
+.services-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+.services-title i {
+  font-size: 1.8rem;
+}
+.auto-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  letter-spacing: 0.5px;
+  animation: pulseAuto 2s ease-in-out infinite;
+}
+@keyframes pulseAuto {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Carousel styles (already in your code, but keep these) */
+.services-carousel {
+  margin: 0 auto;
+  max-width: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 24px 16px 20px;
+  border: 1px solid rgba(245, 158, 11, 0.1);
+  box-shadow: 0 8px 40px rgba(245, 158, 11, 0.04);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+.services-carousel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(245, 158, 11, 0.03), transparent 70%);
+  pointer-events: none;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+  will-change: transform;
+}
+.carousel-card {
+  min-width: 100%;
+  padding: 16px 20px;
+  color: #e2e8f0;
+  flex-shrink: 0;
+}
+.carousel-card .icon-wrap {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.carousel-card h4 {
+  font-size: 1.4rem;
+  color: #f1f5f9;
+  margin: 6px 0 4px;
+  font-weight: 700;
+}
+.carousel-card p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+.carousel-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+.carousel-dots span.active {
+  background: #f59e0b;
+  width: 32px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+.carousel-cta {
+  display: inline-block;
+  margin-top: 16px;
+  color: #fbbf24;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px dashed rgba(245, 158, 11, 0.3);
+  padding-bottom: 3px;
+  transition: 0.3s;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 2;
+}
+.carousel-cta:hover {
+  color: #f59e0b;
+  border-bottom-color: #f59e0b;
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .auto-badge {
+    font-size: 0.6rem;
+    padding: 2px 10px;
+  }
+  .carousel-card h4 {
+    font-size: 1.1rem;
+  }
+  .carousel-card p {
+    font-size: 0.85rem;
+  }
+}
     /* ===== JOB TICKER ===== */
     .job-ticker {
       background: rgba(15, 23, 42, 0.7);
@@ -305,7 +452,7 @@
       align-items: center;
       gap: 20px;
       max-width: 95%;
-      margin: 0 auto;
+      margin: 0.5rem auto;
       flex-wrap: wrap;
       justify-content: center;
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
@@ -419,7 +566,7 @@
       100% { transform: translateY(-50%); }
     }
     .joining-badge {
-      margin-top: 1rem;
+      margin-top: 0.8rem;
       display: inline-block;
       background: linear-gradient(135deg, #1e293b, #0f172a);
       color: #f1f5f9;
@@ -448,7 +595,7 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* ===== GLASS CARDS ===== */
+    /* ===== GRIDS ===== */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -460,6 +607,7 @@
       gap: 2rem;
     }
 
+    /* ===== GLASS CARDS ===== */
     .glass-card {
       background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(16px);
@@ -517,6 +665,7 @@
       margin-bottom: 4px;
     }
 
+    /* ===== SKILL TAGS ===== */
     .skill-tag {
       display: inline-block;
       background: rgba(59, 130, 246, 0.1);
@@ -538,6 +687,8 @@
       box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
       border-color: #3b82f6;
     }
+
+    /* ===== PROJECT TECH & INTERN DURATION ===== */
     .project-tech, .intern-duration {
       font-size: 0.8rem;
       color: #60a5fa;
@@ -547,6 +698,8 @@
     .intern-duration {
       color: #a78bfa;
     }
+
+    /* ===== RESPONSIBILITY ITEMS ===== */
     .responsibility-item {
       display: flex;
       align-items: flex-start;
@@ -564,6 +717,7 @@
       flex-shrink: 0;
     }
 
+    /* ===== ACHIEVEMENT BADGE ===== */
     .achievement-badge {
       display: inline-block;
       background: linear-gradient(135deg, #fef3c7, #fde68a);
@@ -746,6 +900,8 @@
       color: #60a5fa;
       margin-right: 8px;
     }
+
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 2rem;
@@ -826,12 +982,18 @@
         padding: 10px 0;
         border-radius: 40px;
       }
+      .carousel-card h4 {
+        font-size: 1.1rem;
+      }
+      .carousel-card p {
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- ===== NETWORK / NEURAL CANVAS ===== -->
+<!-- ===== NETWORK CANVAS ===== -->
 <canvas id="networkCanvas"></canvas>
 
 <!-- ===== CONTENT WRAPPER ===== -->
@@ -844,6 +1006,7 @@
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#services">Services</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#responsibilities">Responsibilities</a>
@@ -872,7 +1035,7 @@
 
         <div class="degree">🎓 B.E. Computer Science & Engineering (Data Science) | Diploma in Computer Engineering</div>
 
-        <<!-- WELCOME TICKER -->
+     <<!-- WELCOME TICKER -->
 <div class="welcome-ticker">
   <div class="ticker-track">
     <<span>
@@ -881,6 +1044,46 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
   </div>
 </div>
 
+
+        <!-- ===== SERVICES CAROUSEL (With Title & Auto-Rotation) ===== -->
+<div class="services-carousel-wrapper">
+  <h3 class="services-title">
+    <i class="fas fa-cogs" style="color: #f59e0b;"></i> What I Build for My client 
+    <span class="auto-badge">⏵ Auto‑rotate</span>
+  </h3>
+
+  <div class="services-carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-card">
+        <div class="icon-wrap"><i class="fas fa-file-alt" style="color:#f59e0b;"></i></div>
+        <h4>Resume Building</h4>
+        <p>Professional, ATS-friendly resume tailored to your profile</p>
+      </div>
+      <div class="carousel-card">
+        <div class="icon-wrap"><i class="fas fa-laptop-code" style="color:#60a5fa;"></i></div>
+        <h4>Portfolio Website</h4>
+        <p>Modern personal or professional portfolio with stunning design</p>
+      </div>
+      <div class="carousel-card">
+        <div class="icon-wrap"><i class="fas fa-layer-group" style="color:#a78bfa;"></i></div>
+        <h4>Resume + Portfolio Package</h4>
+        <p>Complete personal branding – resume + website together</p>
+      </div>
+      <div class="carousel-card">
+        <div class="icon-wrap"><i class="fas fa-code" style="color:#34d399;"></i></div>
+        <h4>Final year Project based on Website</h4>
+        <p> perfect for college projects</p>
+      </div>
+      <div class="carousel-card">
+        <div class="icon-wrap"><i class="fas fa-mobile-alt" style="color:#f472b6;"></i></div>
+        <h4>professional Website</h4>
+        <p>For business people ,schools and colleges and IT companys </p>
+      </div>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <a href="#services" class="carousel-cta">👇 See all details &amp; pricing →</a>
+  </div>
+</div>
         <!-- JOB TICKER -->
         <div class="job-ticker">
           <div class="ticker-label">
@@ -919,6 +1122,91 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
       </div>
     </section>
 
+    <!-- ===== SERVICES / PRICING SECTION ===== -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Services &amp; Pricing</h2>
+        <p style="color: #94a3b8; margin-bottom: 2rem; font-size: 1.05rem;">
+          <i class="fas fa-info-circle" style="color: #f59e0b;"></i> 
+          <strong style="color: #f1f5f9;">Note:</strong> I provide the complete source code files only — deployment/hosting is <strong style="color: #f472b6;">not included</strong>.
+        </p>
+
+        <div class="grid-3">
+          <!-- Resume Building -->
+          <div class="glass-card" style="border-top: 4px solid #f59e0b;">
+            <div class="icon-wrap"><i class="fas fa-file-alt" style="color:#f59e0b; font-size: 2.5rem;"></i></div>
+            <h3>Resume Building</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8;">Professional, ATS-friendly resume tailored to your profile.</p>
+            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹200 – ₹600</div>
+            <div class="project-tech"><i class="fas fa-check-circle" style="color:#34d399;"></i> Based on your requirements</div>
+            <div class="project-tech"><i class="fas fa-file-pdf"></i> PDF + Word files provided</div>
+          </div>
+
+          <!-- Portfolio Website -->
+          <div class="glass-card" style="border-top: 4px solid #60a5fa;">
+            <div class="icon-wrap"><i class="fas fa-laptop-code" style="color:#60a5fa; font-size: 2.5rem;"></i></div>
+            <h3>Portfolio Website</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8;">Personal or professional portfolio with modern design.</p>
+            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹1,000 – ₹4,000</div>
+            <div class="project-tech"><i class="fas fa-check-circle" style="color:#34d399;"></i> Based on complexity</div>
+            <div class="project-tech"><i class="fas fa-html5"></i> HTML / CSS / JS · No Deployment</div>
+          </div>
+
+          <!-- Resume + Portfolio Package -->
+          <div class="glass-card" style="border-top: 4px solid #a78bfa;">
+            <div class="icon-wrap"><i class="fas fa-layer-group" style="color:#a78bfa; font-size: 2.5rem;"></i></div>
+            <h3>Resume + Portfolio Package</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8;">Complete personal branding – resume + website together.</p>
+            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹1,500 – ₹3,500</div>
+            <div class="project-tech"><i class="fas fa-check-circle" style="color:#34d399;"></i> Best value combo</div>
+            <div class="project-tech"><i class="fas fa-gem" style="color:#f59e0b;"></i> 2-in-1 package</div>
+          </div>
+
+          <!-- Final Year Project – Simple -->
+          <div class="glass-card" style="border-top: 4px solid #34d399;">
+            <div class="icon-wrap"><i class="fas fa-code" style="color:#34d399; font-size: 2.5rem;"></i></div>
+            <h3>Final Year Project – Simple</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8;">Basic static website with 3–5 pages.</p>
+            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹3,000 – ₹5,000</div>
+            <div class="project-tech"><i class="fas fa-file-code"></i> HTML · CSS · JavaScript</div>
+            <div class="project-tech"><i class="fas fa-times-circle" style="color:#f472b6;"></i> No deployment</div>
+          </div>
+
+          <!-- Final Year Project – Responsive -->
+          <div class="glass-card" style="border-top: 4px solid #f472b6;">
+            <div class="icon-wrap"><i class="fas fa-mobile-alt" style="color:#f472b6; font-size: 2.5rem;"></i></div>
+            <h3>Final Year Project – Responsive</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8;">Fully responsive website for all devices (mobile/tablet/desktop).</p>
+            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹4,000 – ₹7,000</div>
+            <div class="project-tech"><i class="fas fa-file-code"></i> HTML · CSS · JavaScript (Responsive)</div>
+            <div class="project-tech"><i class="fas fa-times-circle" style="color:#f472b6;"></i> No deployment</div>
+          </div>
+
+          <!-- Final Year Project – Login + Database -->
+          <div class="glass-card" style="border-top: 4px solid #facc15;">
+            <div class="icon-wrap"><i class="fas fa-database" style="color:#facc15; font-size: 2.5rem;"></i></div>
+            <h3>Final Year Project – Login + Database</h3>
+            <p style="font-size: 0.9rem; color: #94a3b8;">Full-stack project with authentication, database, and dynamic features.</p>
+            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹8,000 – ₹15,000</div>
+            <div class="project-tech"><i class="fas fa-server"></i> React/Node/PHP + MySQL/MongoDB</div>
+            <div class="project-tech"><i class="fas fa-times-circle" style="color:#f472b6;"></i> No deployment</div>
+          </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div style="margin-top: 2.5rem; text-align: center; background: rgba(15,23,42,0.4); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(245,158,11,0.08);">
+          <p style="font-size: 1.2rem; color: #e2e8f0;">
+            <i class="fas fa-handshake" style="color: #f59e0b; font-size: 1.8rem;"></i>
+          </p>
+          <h3 style="color: #f1f5f9; margin: 8px 0;">Ready to get started?</h3>
+          <p style="color: #94a3b8; margin-bottom: 1rem;">Contact me with your requirements, and I'll give you a custom quote.</p>
+          <a href="#contact" style="display: inline-block; background: #f59e0b; color: #0a0e1a; padding: 10px 32px; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.3s;">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== EDUCATION ===== -->
     <section id="education">
       <div class="container">
@@ -935,9 +1223,9 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     <!-- ===== SKILLS ===== -->
     <section id="skills">
       <div class="container">
-        <h2 class="section-title">Skills & Competencies</h2>
+        <h2 class="section-title">Skills &amp; Competencies</h2>
         <div class="glass-card">
-          <h3><i class="fas fa-chalkboard-teacher" style="color:#3b82f6;"></i> Teaching & Academic</h3>
+          <h3><i class="fas fa-chalkboard-teacher" style="color:#3b82f6;"></i> Teaching &amp; Academic</h3>
           <div><span class="skill-tag">Classroom Management</span><span class="skill-tag">Lesson Planning</span><span class="skill-tag">Student Mentoring</span><span class="skill-tag">Technical Training</span><span class="skill-tag">Lab Session Handling</span><span class="skill-tag">Presentation Skills</span><span class="skill-tag">Academic Assessment</span><span class="skill-tag">Curriculum Development</span></div>
           <h3 style="margin-top: 1.2rem; color:#f1f5f9;"><i class="fas fa-code" style="color:#8b5cf6;"></i> Web Development</h3>
           <div><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Responsive Design</span><span class="skill-tag">Front-End Dev</span><span class="skill-tag">UI Design</span><span class="skill-tag">Git (Basic)</span></div>
@@ -954,7 +1242,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     <!-- ===== RESPONSIBILITIES ===== -->
     <section id="responsibilities">
       <div class="container">
-        <h2 class="section-title">Responsibilities & Leadership</h2>
+        <h2 class="section-title">Responsibilities &amp; Leadership</h2>
         <div class="grid-2">
           <div class="glass-card">
             <div class="icon-wrap"><i class="fas fa-users" style="color:#3b82f6;"></i></div>
@@ -995,7 +1283,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     <!-- ===== ACHIEVEMENTS ===== -->
     <section id="achievements">
       <div class="container">
-        <h2 class="section-title">Achievements & Recognition</h2>
+        <h2 class="section-title">Achievements &amp; Recognition</h2>
         <div class="grid-3">
           <div class="glass-card" style="background: linear-gradient(135deg, rgba(15,23,42,0.7), rgba(254,243,199,0.05)); border-left: 4px solid #f59e0b;">
             <div class="icon-wrap"><i class="fas fa-trophy" style="color:#f59e0b;"></i></div>
@@ -1006,7 +1294,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
           <div class="glass-card" style="background: linear-gradient(135deg, rgba(15,23,42,0.7), rgba(59,130,246,0.05)); border-left: 4px solid #3b82f6;">
             <div class="icon-wrap"><i class="fas fa-award" style="color:#3b82f6;"></i></div>
             <h3>Student Coordinator – Short Film Events</h3>
-            <p>Compsem 2025 & 2026</p>
+            <p>Compsem 2025 &amp; 2026</p>
             <span class="achievement-badge">🎬 Creative</span>
           </div>
           <div class="glass-card" style="background: linear-gradient(135deg, rgba(15,23,42,0.7), rgba(16,185,129,0.05)); border-left: 4px solid #10b981;">
@@ -1017,7 +1305,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
           </div>
           <div class="glass-card" style="background: linear-gradient(135deg, rgba(15,23,42,0.7), rgba(139,92,246,0.05)); border-left: 4px solid #8b5cf6;">
             <div class="icon-wrap"><i class="fas fa-hands-helping" style="color:#8b5cf6;"></i></div>
-            <h3>NSS Participation & Leadership</h3>
+            <h3>NSS Participation &amp; Leadership</h3>
             <p>Recognized for impactful social projects</p>
             <span class="achievement-badge">🌱 Social Impact</span>
           </div>
@@ -1037,89 +1325,88 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
       </div>
     </section>
 
-    <!-- ===== INTERNSHIPS ===== -->
-    <!-- ===== INTERNSHIPS (UPDATED with BSNL) ===== -->
-<section id="internships">
-  <div class="container">
-    <h2 class="section-title">Internship Experience</h2>
-    <div class="grid-3">
-      <!-- 1. VG Digital Falcon -->
-      <div class="glass-card">
-        <div class="icon-wrap"><i class="fas fa-building" style="color:#8b5cf6;"></i></div>
-        <h3>VG Digital Falcon Pvt. Ltd.</h3>
-        <p><strong style="color:#f1f5f9;">Data Analyst Intern</strong> | June 2025</p>
-        <p style="margin-top: 8px;">Gained corporate exposure to enterprise software engineering workflows, analytical modeling frameworks, and agile project delivery standards. Worked on data cleaning, visualization, and reporting dashboards.</p>
-        <div class="intern-duration"><i class="far fa-calendar-alt"></i> 1 month · Full-time</div>
+    <!-- ===== INTERNSHIPS (with BSNL) ===== -->
+    <section id="internships">
+      <div class="container">
+        <h2 class="section-title">Internship Experience</h2>
+        <div class="grid-3">
+          <!-- VG Digital Falcon -->
+          <div class="glass-card">
+            <div class="icon-wrap"><i class="fas fa-building" style="color:#8b5cf6;"></i></div>
+            <h3>VG Digital Falcon Pvt. Ltd.</h3>
+            <p><strong style="color:#f1f5f9;">Data Analyst Intern</strong> | June 2025</p>
+            <p style="margin-top: 8px;">Gained corporate exposure to enterprise software engineering workflows, analytical modeling frameworks, and agile project delivery standards. Worked on data cleaning, visualization, and reporting dashboards.</p>
+            <div class="intern-duration"><i class="far fa-calendar-alt"></i> 1 month · Full-time</div>
+          </div>
+
+          <!-- AllRF & Yazhi -->
+          <div class="glass-card">
+            <div class="icon-wrap"><i class="fas fa-paint-brush" style="color:#8b5cf6;"></i></div>
+            <h3>AllRF &amp; Yazhi Software Solutions</h3>
+            <p><strong style="color:#f1f5f9;">UI &amp; UX Intern</strong></p>
+            <p style="margin-top: 8px;">Collaborated on conceptualizing application layers and front-end interface mockups to bridge business logic with intuitive user experiences. Designed wireframes and prototypes.</p>
+            <div class="intern-duration"><i class="far fa-calendar-alt"></i> Part-time · Project-based</div>
+          </div>
+
+          <!-- BSNL -->
+          <div class="glass-card" style="border-left: 4px solid #10b981;">
+            <div class="icon-wrap"><i class="fas fa-network-wired" style="color:#10b981;"></i></div>
+            <h3>BSNL Data Networking</h3>
+            <p><strong style="color:#f1f5f9;">Networking Intern</strong></p>
+            <p style="margin-top: 8px;">Hands-on training in data networking, routing, switching, and network configuration. Gained practical knowledge in broadband technologies, fiber optics, and network troubleshooting. Participated in real-world network infrastructure projects and maintenance.</p>
+            <div class="intern-duration"><i class="far fa-calendar-alt"></i> Certified Training</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- 2. AllRF & Yazhi -->
-      <div class="glass-card">
-        <div class="icon-wrap"><i class="fas fa-paint-brush" style="color:#8b5cf6;"></i></div>
-        <h3>AllRF &amp; Yazhi Software Solutions</h3>
-        <p><strong style="color:#f1f5f9;">UI &amp; UX Intern</strong></p>
-        <p style="margin-top: 8px;">Collaborated on conceptualizing application layers and front-end interface mockups to bridge business logic with intuitive user experiences. Designed wireframes and prototypes.</p>
-        <div class="intern-duration"><i class="far fa-calendar-alt"></i> Part-time · Project-based</div>
+    <!-- ===== PROJECTS (with Swiggy Tracker live URL) ===== -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects &amp; Research</h2>
+        <div class="grid-3">
+          <!-- Vendor Dashboard -->
+          <div class="glass-card">
+            <div class="icon-wrap"><i class="fas fa-chart-line" style="color:#3b82f6;"></i></div>
+            <h3>Vendor Dashboard Performance Analysis</h3>
+            <p><strong style="color:#f1f5f9;">B.E. Capstone Project</strong> | Guided by Dr. K. T. Meena Abarna</p>
+            <p style="margin-top: 8px;">Role-based web platform (Vendor, Shop Owner, Admin) with dynamic sales KPIs, profit metrics, and live analytics. Engineered full-stack architecture using Node.js, Express, MongoDB, and Chart.js.</p>
+            <div class="project-tech">Node.js · Express · MongoDB · Chart.js · JWT</div>
+          </div>
+
+          <!-- Background Subtraction -->
+          <div class="glass-card">
+            <div class="icon-wrap"><i class="fas fa-video" style="color:#3b82f6;"></i></div>
+            <h3>Real-Time Background Subtraction</h3>
+            <p><strong style="color:#f1f5f9;">Diploma Major Project</strong> | Computer Vision &amp; Surveillance</p>
+            <p style="margin-top: 8px;">Engineered an automated surveillance application utilizing image processing and dynamic frame subtraction to isolate moving objects in real-time video streams.</p>
+            <div class="project-tech">Python · OpenCV · Computer Vision</div>
+          </div>
+
+          <!-- Swiggy Tracker (with live URL) -->
+          <div class="glass-card" style="border-left: 4px solid #f59e0b;">
+            <div class="icon-wrap"><i class="fas fa-motorcycle" style="color:#f59e0b;"></i></div>
+            <h3>Delivery Partner Earnings Tracker</h3><p> Its in testing </p>
+            <p><strong style="color:#f1f5f9;">Full-Stack Web App (Frontend Focus)</strong></p>
+            <p style="margin-top: 8px;">A complete earnings tracker for delivery partners. Tracks daily KM, earnings, petrol expenses, profit, and fuel efficiency. Includes dashboard, daily entry form, petrol logs, weekly/monthly reports, performance prediction, and interactive charts.</p>
+            <div class="project-tech">HTML · CSS · JavaScript · Chart.js · LocalStorage</div>
+            <div style="margin-top: 12px;">
+              <a href="https://mohamedjabeer.github.io/swiggy-tracker/" target="_blank" style="display: inline-block; background: #f59e0b; color: #0a0e1a; padding: 6px 18px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 0.8rem; transition: 0.3s;">
+                <i class="fas fa-external-link-alt"></i> View App
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Publication -->
+        <div style="margin-top: 2rem; background: rgba(15,23,42,0.5); backdrop-filter: blur(12px); border-radius: 1rem; padding: 1.8rem; border-left: 6px solid #3b82f6; border: 1px solid rgba(59,130,246,0.08);">
+          <h3 style="color:#f1f5f9;"><i class="fas fa-book-open" style="color:#3b82f6;"></i> Research Publication</h3>
+          <p style="color:#e2e8f0;"><strong style="color:#f1f5f9;">Journal of Emerging Trends and Novel Research (JETNR)</strong> | March 2026 | Volume 4, Issue 3<br>
+          “Vendor Dashboard Performance Analysis System: A Role-Based Web Platform for Retail Supply Chain Analytics” – Peer-reviewed research mapping multi-user environments to a unified database schema.</p>
+        </div>
       </div>
+    </section>
 
-      <!-- 3. BSNL (NEW) -->
-      <div class="glass-card" style="border-left: 4px solid #10b981;">
-        <div class="icon-wrap"><i class="fas fa-network-wired" style="color:#10b981;"></i></div>
-        <h3>BSNL Data Networking</h3>
-        <p><strong style="color:#f1f5f9;">Networking Intern</strong></p>
-        <p style="margin-top: 8px;">Hands-on training in data networking, routing, switching, and network configuration. Gained practical knowledge in broadband technologies, fiber optics, and network troubleshooting. Participated in real-world network infrastructure projects and maintenance.</p>
-        <div class="intern-duration"><i class="far fa-calendar-alt"></i> Certified Training</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- ===== PROJECTS (UPDATED with Swiggy Tracker) ===== -->
-<section id="projects">
-  <div class="container">
-    <h2 class="section-title">Projects & Research</h2>
-    <div class="grid-3">
-      <!-- 1. Vendor Dashboard -->
-      <div class="glass-card">
-        <div class="icon-wrap"><i class="fas fa-chart-line" style="color:#3b82f6;"></i></div>
-        <h3>Vendor Dashboard Performance Analysis</h3>
-        <p><strong style="color:#f1f5f9;">B.E. Capstone Project</strong> | Guided by Dr. K. T. Meena Abarna</p>
-        <p style="margin-top: 8px;">Role-based web platform (Vendor, Shop Owner, Admin) with dynamic sales KPIs, profit metrics, and live analytics. Engineered full-stack architecture using Node.js, Express, MongoDB, and Chart.js.</p>
-        <div class="project-tech">Node.js · Express · MongoDB · Chart.js · JWT</div>
-      </div>
-
-      <!-- 2. Background Subtraction -->
-      <div class="glass-card">
-        <div class="icon-wrap"><i class="fas fa-video" style="color:#3b82f6;"></i></div>
-        <h3>Real-Time Background Subtraction</h3>
-        <p><strong style="color:#f1f5f9;">Diploma Major Project</strong> | Computer Vision &amp; Surveillance</p>
-        <p style="margin-top: 8px;">Engineered an automated surveillance application utilizing image processing and dynamic frame subtraction to isolate moving objects in real-time video streams.</p>
-        <div class="project-tech">Python · OpenCV · Computer Vision</div>
-      </div>
-
-      <!-- 3. Swiggy Delivery Tracker (NEW) -->
-      <!-- 3. Swiggy Delivery Tracker (with your live URL) -->
-<div class="glass-card" style="border-left: 4px solid #f59e0b;">
-  <div class="icon-wrap"><i class="fas fa-motorcycle" style="color:#f59e0b;"></i></div>
-  <h3>Swiggy Delivery Partner Earnings Tracker</h3>
-  <p><strong style="color:#f1f5f9;">Full-Stack Web App (Frontend Focus)</strong></p>
-  <p style="margin-top: 8px;">A complete earnings tracker for delivery partners. Tracks daily KM, earnings, petrol expenses, profit, and fuel efficiency. Includes dashboard, daily entry form, petrol logs, weekly/monthly reports, performance prediction, and interactive charts.</p>
-  <div class="project-tech">HTML · CSS · JavaScript · Chart.js · LocalStorage</div>
-  <div style="margin-top: 12px;">
-    <a href="https://mohamedjabeer.github.io/swiggy-tracker/" target="_blank" style="display: inline-block; background: #f59e0b; color: #0a0e1a; padding: 6px 18px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 0.8rem; transition: 0.3s;">
-      <i class="fas fa-external-link-alt"></i> View App
-    </a>
-  </div>
-</div>
-    </div>
-
-    <!-- Research Publication -->
-    <div style="margin-top: 2rem; background: rgba(15,23,42,0.5); backdrop-filter: blur(12px); border-radius: 1rem; padding: 1.8rem; border-left: 6px solid #3b82f6; border: 1px solid rgba(59,130,246,0.08);">
-      <h3 style="color:#f1f5f9;"><i class="fas fa-book-open" style="color:#3b82f6;"></i> Research Publication</h3>
-      <p style="color:#e2e8f0;"><strong style="color:#f1f5f9;">Journal of Emerging Trends and Novel Research (JETNR)</strong> | March 2026 | Volume 4, Issue 3<br>
-      “Vendor Dashboard Performance Analysis System: A Role-Based Web Platform for Retail Supply Chain Analytics” – Peer-reviewed research mapping multi-user environments to a unified database schema.</p>
-    </div>
-  </div>
-</section>
     <!-- ===== CERTIFICATIONS ===== -->
     <section id="certifications">
       <div class="container">
@@ -1146,9 +1433,10 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
             <div class="contact-item"><i class="fas fa-phone-alt"></i> +91 9524664613</div>
             <div class="contact-item"><i class="fas fa-envelope"></i> mohamedjabeer2003@gmail.com</div>
             <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Karaikudi, Tamil Nadu, India</div>
-            </div>
+            <div class="contact-item"><i class="fab fa-linkedin"></i> linkedin.com/in/mohamed-jabeer-j</div>
+          </div>
           <div class="contact-card-highlight">
-            <i class="fas fa-hand-peace"></i> Open for guest lectures & full-time roles.
+            <i class="fas fa-hand-peace"></i> Open for guest lectures &amp; full-time roles.
           </div>
         </div>
       </div>
@@ -1156,7 +1444,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
   </main>
 
   <footer>
-    <p>© 2026 Mohamed Jabeer — Tech Portfolio  <i class="fas fa-code"></i></p>
+    <p>© 2026 Mohamed Jabeer — Tech Portfolio | Built with <i class="fas fa-heart"></i> &amp; <i class="fas fa-code"></i></p>
   </footer>
 
 </div>
@@ -1164,12 +1452,11 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
 <!-- ===== SCRIPTS ===== -->
 <script>
   // ============================================
-  // 1. DYNAMIC PARTICLE NETWORK (Neural Network Style)
+  // 1. DYNAMIC PARTICLE NETWORK
   // ============================================
   (function() {
     const canvas = document.getElementById('networkCanvas');
     const ctx = canvas.getContext('2d');
-
     let width, height, particles, mouse;
 
     function resizeCanvas() {
@@ -1181,7 +1468,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     }
 
     function initParticles() {
-      // Adjust particle count based on screen size
       const count = Math.min(120, Math.floor((width * height) / 12000));
       particles = [];
       for (let i = 0; i < count; i++) {
@@ -1195,7 +1481,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
       }
     }
 
-    // Mouse tracking for interactive connections
     mouse = { x: -1000, y: -1000 };
     canvas.addEventListener('mousemove', (e) => {
       mouse.x = e.clientX;
@@ -1205,8 +1490,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
       mouse.x = -1000;
       mouse.y = -1000;
     });
-
-    // Touch support for mobile
     canvas.addEventListener('touchmove', (e) => {
       e.preventDefault();
       const touch = e.touches[0];
@@ -1220,19 +1503,15 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
 
     function draw() {
       ctx.clearRect(0, 0, width, height);
-
-      // 1. Update particle positions
       for (let p of particles) {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
-        // Slight edge padding
         p.x = Math.max(0, Math.min(width, p.x));
         p.y = Math.max(0, Math.min(height, p.y));
       }
 
-      // 2. Draw connections between particles
       const threshold = 150;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
@@ -1244,7 +1523,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            // Gradient line from blue to purple
             const gradient = ctx.createLinearGradient(
               particles[i].x, particles[i].y,
               particles[j].x, particles[j].y
@@ -1258,7 +1536,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         }
       }
 
-      // 3. Draw connections from particles to mouse cursor
       if (mouse.x > 0 && mouse.y > 0) {
         for (let p of particles) {
           const dx = p.x - mouse.x;
@@ -1276,11 +1553,9 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         }
       }
 
-      // 4. Draw glowing particles
       for (let p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        // Glow effect
         const gradient = ctx.createRadialGradient(
           p.x - 2, p.y - 2, 0,
           p.x, p.y, p.r * 3
@@ -1290,8 +1565,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         gradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
         ctx.fillStyle = gradient;
         ctx.fill();
-
-        // Solid core
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 0.5, 0, Math.PI * 2);
         ctx.fillStyle = '#60a5fa';
@@ -1300,7 +1573,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         ctx.fill();
         ctx.shadowBlur = 0;
       }
-
       requestAnimationFrame(draw);
     }
 
@@ -1327,8 +1599,41 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     setTimeout(typeWriter, 500);
   });
 
+ // ===== SERVICES CAROUSEL AUTO-ROTATION =====
+(function() {
+  const track = document.getElementById('carouselTrack');
+  const dots = document.getElementById('carouselDots');
+  if (!track || !dots) return;
+  const cards = track.querySelectorAll('.carousel-card');
+  let current = 0;
+  const total = cards.length;
+
+  cards.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dots.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.querySelectorAll('span').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  // Auto-rotate every 4.5 seconds
+  let interval = setInterval(() => goTo((current + 1) % total), 4500);
+
+  // Pause on hover
+  const carousel = document.querySelector('.services-carousel');
+  carousel.addEventListener('mouseenter', () => clearInterval(interval));
+  carousel.addEventListener('mouseleave', () => {
+    interval = setInterval(() => goTo((current + 1) % total), 4500);
+  });
+})();
+
   // ============================================
-  // 3. CERTIFICATION MANAGER (localStorage)
+  // 4. CERTIFICATION MANAGER
   // ============================================
   let certArray = [];
 
