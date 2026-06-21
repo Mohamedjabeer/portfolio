@@ -21,24 +21,261 @@
       scroll-behavior: smooth;
       overflow-x: hidden;
       min-height: 100vh;
-      background: #080b16;
+      background: #0a0e1a;
       position: relative;
     }
 
-    /* ===== NETWORK CANVAS ===== */
-    #networkCanvas {
+    /* ============================================================ */
+    /* ===== BRIGHTER DATA SCIENCE BACKGROUND ===== */
+    /* ============================================================ */
+
+    /* 1. VIBRANT ANIMATED GRADIENT */
+    .bg-ds {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      background: #080b16;
-      opacity: 0.8;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -6;
+      background: linear-gradient(-45deg, #0a0e1a, #0f2847, #0d2b45, #1a2a5e, #0d1a3a);
+      background-size: 400% 400%;
+      animation: dsBG 25s ease infinite;
+    }
+    @keyframes dsBG {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 100%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 0%; }
+      100% { background-position: 0% 50%; }
     }
 
+    /* 2. BRIGHT GLOWING ORBS */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: -5;
+      animation: orbFloat 14s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      top: 5%; left: 0%;
+      width: 600px; height: 600px;
+      background: rgba(0, 200, 255, 0.15);
+      animation-duration: 18s;
+    }
+    .orb-2 {
+      bottom: 0%; right: 0%;
+      width: 700px; height: 700px;
+      background: rgba(100, 80, 255, 0.12);
+      animation-duration: 22s;
+      animation-delay: 3s;
+    }
+    .orb-3 {
+      top: 40%; left: 30%;
+      width: 500px; height: 500px;
+      background: rgba(0, 255, 200, 0.08);
+      animation-duration: 16s;
+      animation-delay: 5s;
+    }
+    .orb-4 {
+      top: 70%; left: 10%;
+      width: 400px; height: 400px;
+      background: rgba(255, 100, 200, 0.06);
+      animation-duration: 20s;
+      animation-delay: 2s;
+    }
+    .orb-5 {
+      top: 20%; right: 15%;
+      width: 350px; height: 350px;
+      background: rgba(0, 255, 100, 0.06);
+      animation-duration: 24s;
+      animation-delay: 7s;
+    }
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+      50% { transform: translate(80px, -60px) scale(1.3); opacity: 0.8; }
+      100% { transform: translate(-50px, 50px) scale(0.9); opacity: 0.5; }
+    }
+
+    /* 3. DATA GRID (Brighter) */
+    .data-grid {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -4;
+      pointer-events: none;
+      opacity: 0.08;
+      background-image:
+        linear-gradient(rgba(0, 212, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.15) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridPulse 6s ease-in-out infinite alternate;
+    }
+    @keyframes gridPulse {
+      0% { opacity: 0.04; transform: scale(1); }
+      100% { opacity: 0.12; transform: scale(1.02); }
+    }
+
+    /* 4. BRIGHTER BINARY RAIN */
+    .binary-rain {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -3;
+      pointer-events: none;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      color: rgba(0, 212, 255, 0.08);
+      font-size: 1.6rem;
+    }
+    .binary-rain .bin {
+      position: absolute;
+      animation: fall 20s linear infinite;
+      opacity: 0.5;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+    }
+    .binary-rain .bin:nth-child(1) { left: 5%; animation-duration: 22s; color: rgba(0, 212, 255, 0.12); }
+    .binary-rain .bin:nth-child(2) { left: 15%; animation-duration: 18s; animation-delay: 3s; color: rgba(0, 255, 135, 0.10); }
+    .binary-rain .bin:nth-child(3) { left: 25%; animation-duration: 25s; animation-delay: 6s; color: rgba(0, 212, 255, 0.14); }
+    .binary-rain .bin:nth-child(4) { left: 35%; animation-duration: 20s; animation-delay: 2s; color: rgba(124, 58, 237, 0.10); }
+    .binary-rain .bin:nth-child(5) { left: 45%; animation-duration: 23s; animation-delay: 8s; color: rgba(0, 212, 255, 0.12); }
+    .binary-rain .bin:nth-child(6) { left: 55%; animation-duration: 19s; animation-delay: 4s; color: rgba(0, 255, 135, 0.10); }
+    .binary-rain .bin:nth-child(7) { left: 65%; animation-duration: 26s; animation-delay: 1s; color: rgba(0, 212, 255, 0.14); }
+    .binary-rain .bin:nth-child(8) { left: 75%; animation-duration: 21s; animation-delay: 7s; color: rgba(124, 58, 237, 0.10); }
+    .binary-rain .bin:nth-child(9) { left: 85%; animation-duration: 24s; animation-delay: 5s; color: rgba(0, 212, 255, 0.12); }
+    .binary-rain .bin:nth-child(10) { left: 95%; animation-duration: 17s; animation-delay: 9s; color: rgba(0, 255, 135, 0.10); }
+    .binary-rain .bin:nth-child(11) { left: 10%; animation-duration: 28s; animation-delay: 11s; color: rgba(0, 212, 255, 0.08); }
+    .binary-rain .bin:nth-child(12) { left: 50%; animation-duration: 16s; animation-delay: 13s; color: rgba(124, 58, 237, 0.08); }
+    @keyframes fall {
+      0% { transform: translateY(-100vh) rotate(0deg) scale(0.8); opacity: 0.1; }
+      50% { opacity: 0.7; }
+      100% { transform: translateY(110vh) rotate(720deg) scale(1.2); opacity: 0.02; }
+    }
+
+    /* 5. FLOATING DATA SCIENCE TERMS (Brighter) */
+    .ds-terms {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    .ds-terms .term {
+      position: absolute;
+      animation: floatTerm 40s linear infinite;
+      opacity: 0.08;
+      text-shadow: 0 0 30px currentColor;
+    }
+    .ds-terms .term:nth-child(1) { top: 15%; left: 5%; animation-duration: 45s; color: #00d4ff; }
+    .ds-terms .term:nth-child(2) { top: 30%; right: 8%; animation-duration: 35s; animation-delay: 5s; color: #00ff87; }
+    .ds-terms .term:nth-child(3) { top: 55%; left: 8%; animation-duration: 40s; animation-delay: 10s; color: #7c3aed; }
+    .ds-terms .term:nth-child(4) { top: 75%; right: 12%; animation-duration: 38s; animation-delay: 3s; color: #f472b6; }
+    .ds-terms .term:nth-child(5) { top: 90%; left: 20%; animation-duration: 42s; animation-delay: 7s; color: #f59e0b; }
+    .ds-terms .term:nth-child(6) { top: 20%; left: 45%; animation-duration: 36s; animation-delay: 12s; color: #00d4ff; }
+    .ds-terms .term:nth-child(7) { top: 65%; left: 55%; animation-duration: 44s; animation-delay: 2s; color: #00ff87; }
+    .ds-terms .term:nth-child(8) { top: 10%; right: 35%; animation-duration: 39s; animation-delay: 8s; color: #7c3aed; }
+    .ds-terms .term:nth-child(9) { top: 45%; right: 30%; animation-duration: 37s; animation-delay: 4s; color: #f472b6; }
+    .ds-terms .term:nth-child(10) { top: 80%; left: 35%; animation-duration: 41s; animation-delay: 9s; color: #f59e0b; }
+    .ds-terms .term:nth-child(11) { top: 8%; left: 55%; animation-duration: 43s; animation-delay: 6s; color: #00d4ff; }
+    .ds-terms .term:nth-child(12) { top: 50%; left: 65%; animation-duration: 34s; animation-delay: 11s; color: #00ff87; }
+    @keyframes floatTerm {
+      0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.03; }
+      25% { transform: translateY(-80px) rotate(3deg) scale(1.3); opacity: 0.12; }
+      50% { transform: translateY(60px) rotate(-3deg) scale(0.9); opacity: 0.06; }
+      75% { transform: translateY(-40px) rotate(2deg) scale(1.1); opacity: 0.10; }
+      100% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.03; }
+    }
+
+    /* 6. FLOATING TECH ICONS (New) */
+    .tech-icons-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .tech-icons-bg .icon-bg {
+      position: absolute;
+      font-size: 2.5rem;
+      opacity: 0.06;
+      animation: iconFloatBg 30s linear infinite;
+      text-shadow: 0 0 40px currentColor;
+    }
+    .tech-icons-bg .icon-bg:nth-child(1) { top: 12%; left: 12%; animation-duration: 32s; color: #e34c26; }
+    .tech-icons-bg .icon-bg:nth-child(2) { top: 25%; right: 15%; animation-duration: 28s; animation-delay: 4s; color: #264de4; }
+    .tech-icons-bg .icon-bg:nth-child(3) { top: 60%; left: 6%; animation-duration: 35s; animation-delay: 7s; color: #f7df1e; }
+    .tech-icons-bg .icon-bg:nth-child(4) { bottom: 15%; right: 10%; animation-duration: 30s; animation-delay: 2s; color: #61dafb; }
+    .tech-icons-bg .icon-bg:nth-child(5) { top: 45%; right: 20%; animation-duration: 26s; animation-delay: 9s; color: #68a063; }
+    .tech-icons-bg .icon-bg:nth-child(6) { bottom: 30%; left: 15%; animation-duration: 33s; animation-delay: 5s; color: #777bb4; }
+    .tech-icons-bg .icon-bg:nth-child(7) { top: 75%; right: 25%; animation-duration: 29s; animation-delay: 8s; color: #f05032; }
+    .tech-icons-bg .icon-bg:nth-child(8) { top: 35%; left: 30%; animation-duration: 31s; animation-delay: 3s; color: #00758f; }
+    .tech-icons-bg .icon-bg:nth-child(9) { bottom: 45%; right: 35%; animation-duration: 27s; animation-delay: 10s; color: #7952b3; }
+    .tech-icons-bg .icon-bg:nth-child(10) { top: 5%; right: 40%; animation-duration: 34s; animation-delay: 6s; color: #ff9900; }
+    .tech-icons-bg .icon-bg:nth-child(11) { top: 85%; left: 40%; animation-duration: 30s; animation-delay: 1s; color: #00d4ff; }
+    .tech-icons-bg .icon-bg:nth-child(12) { top: 50%; left: 50%; animation-duration: 36s; animation-delay: 11s; color: #ff6b6b; }
+    @keyframes iconFloatBg {
+      0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.03; }
+      25% { transform: translateY(-90px) rotate(90deg) scale(1.4); opacity: 0.08; }
+      50% { transform: translateY(70px) rotate(180deg) scale(0.7); opacity: 0.04; }
+      75% { transform: translateY(-50px) rotate(270deg) scale(1.2); opacity: 0.07; }
+      100% { transform: translateY(0) rotate(360deg) scale(0.8); opacity: 0.03; }
+    }
+
+    /* 7. NEURAL NETWORK CANVAS (Brighter) */
+    #networkCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.30;
+    }
+
+    /* 8. SCANNING RADAR (Bottom-Right Corner) */
+    .radar-bg {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      width: 100px; height: 100px;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.10;
+    }
+    .radar-bg .radar-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      animation: radarPulse 4s ease-out infinite;
+    }
+    .radar-bg .radar-ring:nth-child(1) { width: 100%; height: 100%; animation-delay: 0s; }
+    .radar-bg .radar-ring:nth-child(2) { width: 70%; height: 70%; top: 15%; left: 15%; animation-delay: 1.5s; }
+    .radar-bg .radar-ring:nth-child(3) { width: 40%; height: 40%; top: 30%; left: 30%; animation-delay: 3s; }
+    .radar-bg .radar-line {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 50%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0, 212, 255, 0.3), transparent);
+      transform-origin: 0% 50%;
+      animation: radarSpin 6s linear infinite;
+    }
+    @keyframes radarPulse {
+      0% { transform: scale(0.8); opacity: 0.8; }
+      100% { transform: scale(1.3); opacity: 0; }
+    }
+    @keyframes radarSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ============================================================ */
     /* ===== CONTENT WRAPPER ===== */
+    /* ============================================================ */
+
     .content-wrapper {
       position: relative;
       z-index: 1;
@@ -70,13 +307,13 @@
 
     /* ===== NAVBAR ===== */
     .navbar {
-      background: rgba(8, 11, 22, 0.85);
+      background: rgba(10, 14, 26, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.08);
       animation: fadeInDown 0.8s ease forwards;
     }
     .nav-container {
@@ -91,7 +328,7 @@
     .logo {
       font-weight: 900;
       font-size: 1.5rem;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+      background: linear-gradient(135deg, #00d4ff, #00ff87, #7c3aed);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
@@ -119,32 +356,32 @@
       left: 0;
       width: 0%;
       height: 2.5px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      background: linear-gradient(90deg, #00d4ff, #00ff87);
       border-radius: 2px;
       transition: width 0.3s ease;
     }
     .nav-links a:hover::after { width: 100%; }
-    .nav-links a:hover { color: #60a5fa; transform: translateY(-2px); }
+    .nav-links a:hover { color: #00d4ff; transform: translateY(-2px); }
     .resume-btn {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      background: linear-gradient(135deg, #00d4ff, #7c3aed);
       color: white !important;
       padding: 8px 22px;
       border-radius: 40px;
       transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
     }
     .resume-btn::after { display: none; }
     .resume-btn:hover {
       transform: translateY(-3px) scale(1.04);
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 212, 255, 0.3);
       color: white !important;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      background: linear-gradient(135deg, #00d4ff, #7c3aed);
     }
 
     /* ===== SECTIONS ===== */
     section {
       padding: 80px 0;
-      border-bottom: 1px solid rgba(59, 130, 246, 0.06);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.05);
       animation: fadeInUp 1s ease forwards;
       opacity: 0;
       position: relative;
@@ -174,7 +411,7 @@
       left: 0;
       width: 60%;
       height: 4px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+      background: linear-gradient(90deg, #00d4ff, #00ff87, #ec4899);
       border-radius: 4px;
       animation: shimmer 3s ease-in-out infinite;
       background-size: 200% 100%;
@@ -193,8 +430,8 @@
       height: 160px;
       object-fit: cover;
       border-radius: 50%;
-      border: 4px solid rgba(59, 130, 246, 0.3);
-      box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.08);
+      border: 4px solid rgba(0, 212, 255, 0.2);
+      box-shadow: 0 20px 40px -12px rgba(0, 212, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.05);
       margin-bottom: 1.2rem;
       background: #1e293b;
       animation: float 3.5s ease-in-out infinite;
@@ -214,18 +451,18 @@
     .typing-name {
       font-size: 2.8rem;
       font-weight: 900;
-      background: linear-gradient(135deg, #f1f5f9, #60a5fa, #a78bfa);
+      background: linear-gradient(135deg, #f1f5f9, #00d4ff, #00ff87);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      border-right: 4px solid #3b82f6;
+      border-right: 4px solid #00d4ff;
       animation: blinkCursor 0.9s step-end infinite;
       white-space: nowrap;
       overflow: hidden;
       display: inline-block;
     }
     @keyframes blinkCursor {
-      0%, 100% { border-color: #3b82f6; }
+      0%, 100% { border-color: #00d4ff; }
       50% { border-color: transparent; }
     }
 
@@ -238,15 +475,15 @@
 
     /* ===== WELCOME TICKER ===== */
     .welcome-ticker {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(12px);
       padding: 14px 0;
       border-radius: 60px;
       margin: 0 auto 1rem auto;
       max-width: 98%;
       overflow: hidden;
-      border: 1px solid rgba(59, 130, 246, 0.15);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.06);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
       position: relative;
     }
     .welcome-ticker::before {
@@ -256,7 +493,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.05), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.04), transparent);
       animation: shimmerTicker 4s ease-in-out infinite;
       pointer-events: none;
     }
@@ -282,7 +519,7 @@
       margin: 0 10px;
     }
     .welcome-ticker .ticker-track .highlight {
-      color: #60a5fa;
+      color: #00d4ff;
       font-weight: 700;
     }
     .welcome-ticker .ticker-track .gold-star {
@@ -296,154 +533,155 @@
     }
 
     /* ===== SERVICES TITLE & AUTO-BADGE ===== */
-.services-carousel-wrapper {
-  max-width: 95%;
-  margin: 1.2rem auto 0.5rem auto;
-}
-.services-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #f1f5f9;
-  margin-bottom: 0.8rem;
-  letter-spacing: 0.5px;
-}
-.services-title i {
-  font-size: 1.8rem;
-}
-.auto-badge {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #94a3b8;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 4px 14px;
-  border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  letter-spacing: 0.5px;
-  animation: pulseAuto 2s ease-in-out infinite;
-}
-@keyframes pulseAuto {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
+    .services-carousel-wrapper {
+      max-width: 95%;
+      margin: 1.2rem auto 0.5rem auto;
+    }
+    .services-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+    .services-title i {
+      font-size: 1.8rem;
+    }
+    .auto-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 14px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      letter-spacing: 0.5px;
+      animation: pulseAuto 2s ease-in-out infinite;
+    }
+    @keyframes pulseAuto {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
 
-/* Carousel styles (already in your code, but keep these) */
-.services-carousel {
-  margin: 0 auto;
-  max-width: 100%;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 28px;
-  padding: 24px 16px 20px;
-  border: 1px solid rgba(245, 158, 11, 0.1);
-  box-shadow: 0 8px 40px rgba(245, 158, 11, 0.04);
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-}
-.services-carousel::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(245, 158, 11, 0.03), transparent 70%);
-  pointer-events: none;
-}
-.carousel-track {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
-  will-change: transform;
-}
-.carousel-card {
-  min-width: 100%;
-  padding: 16px 20px;
-  color: #e2e8f0;
-  flex-shrink: 0;
-}
-.carousel-card .icon-wrap {
-  font-size: 2.4rem;
-  display: inline-block;
-  margin-bottom: 6px;
-}
-.carousel-card h4 {
-  font-size: 1.4rem;
-  color: #f1f5f9;
-  margin: 6px 0 4px;
-  font-weight: 700;
-}
-.carousel-card p {
-  color: #94a3b8;
-  font-size: 0.95rem;
-}
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 14px;
-  position: relative;
-  z-index: 2;
-}
-.carousel-dots span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  cursor: pointer;
-  transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
-  border: 1px solid rgba(255, 255, 255, 0.02);
-}
-.carousel-dots span.active {
-  background: #f59e0b;
-  width: 32px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
-}
-.carousel-cta {
-  display: inline-block;
-  margin-top: 16px;
-  color: #fbbf24;
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 2px dashed rgba(245, 158, 11, 0.3);
-  padding-bottom: 3px;
-  transition: 0.3s;
-  font-size: 0.95rem;
-  position: relative;
-  z-index: 2;
-}
-.carousel-cta:hover {
-  color: #f59e0b;
-  border-bottom-color: #f59e0b;
-  transform: scale(1.02);
-}
+    /* Carousel styles */
+    .services-carousel {
+      margin: 0 auto;
+      max-width: 100%;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 28px;
+      padding: 24px 16px 20px;
+      border: 1px solid rgba(0, 212, 255, 0.06);
+      box-shadow: 0 8px 40px rgba(0, 212, 255, 0.02);
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .services-carousel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.03), transparent 70%);
+      pointer-events: none;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
+      will-change: transform;
+    }
+    .carousel-card {
+      min-width: 100%;
+      padding: 16px 20px;
+      color: #e2e8f0;
+      flex-shrink: 0;
+    }
+    .carousel-card .icon-wrap {
+      font-size: 2.4rem;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .carousel-card h4 {
+      font-size: 1.4rem;
+      color: #f1f5f9;
+      margin: 6px 0 4px;
+      font-weight: 700;
+    }
+    .carousel-card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+      position: relative;
+      z-index: 2;
+    }
+    .carousel-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+    .carousel-dots span.active {
+      background: #00d4ff;
+      width: 32px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+    }
+    .carousel-cta {
+      display: inline-block;
+      margin-top: 16px;
+      color: #00d4ff;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px dashed rgba(0, 212, 255, 0.2);
+      padding-bottom: 3px;
+      transition: 0.3s;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 2;
+    }
+    .carousel-cta:hover {
+      color: #00ff87;
+      border-bottom-color: #00ff87;
+      transform: scale(1.02);
+    }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .services-title {
-    font-size: 1.2rem;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .auto-badge {
-    font-size: 0.6rem;
-    padding: 2px 10px;
-  }
-  .carousel-card h4 {
-    font-size: 1.1rem;
-  }
-  .carousel-card p {
-    font-size: 0.85rem;
-  }
-}
+    /* Responsive carousel */
+    @media (max-width: 768px) {
+      .services-title {
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .auto-badge {
+        font-size: 0.6rem;
+        padding: 2px 10px;
+      }
+      .carousel-card h4 {
+        font-size: 1.1rem;
+      }
+      .carousel-card p {
+        font-size: 0.85rem;
+      }
+    }
+
     /* ===== JOB TICKER ===== */
     .job-ticker {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       padding: 16px 28px;
@@ -457,7 +695,7 @@
       justify-content: center;
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
       position: relative;
-      border: 1px solid rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(0, 212, 255, 0.06);
       animation: scaleIn 1s ease 0.4s both;
       z-index: 2;
     }
@@ -466,7 +704,7 @@
       position: absolute;
       inset: -6px;
       border-radius: 120px;
-      background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.04), transparent 70%);
+      background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.06), rgba(0, 255, 135, 0.03), transparent 70%);
       z-index: -1;
       animation: bgPulse 4s ease-in-out infinite alternate;
     }
@@ -485,7 +723,7 @@
     }
     .ticker-label i {
       font-size: 1.8rem;
-      color: #60a5fa;
+      color: #00d4ff;
       animation: pulseIcon 1.8s ease-in-out infinite;
     }
     @keyframes pulseIcon {
@@ -497,7 +735,7 @@
       display: inline-block;
       width: 3px;
       height: 1.4rem;
-      background: #3b82f6;
+      background: #00d4ff;
       margin-left: 2px;
       animation: blink 0.9s step-end infinite;
       border-radius: 2px;
@@ -509,15 +747,15 @@
     .ticker-box-wrapper {
       padding: 3px;
       border-radius: 60px;
-      background: conic-gradient(from var(--angle, 0deg), #3b82f6, #8b5cf6, #ec4899, #facc15, #3b82f6);
+      background: conic-gradient(from var(--angle, 0deg), #00d4ff, #00ff87, #ec4899, #facc15, #00d4ff);
       animation: rotateBorder 6s linear infinite;
       flex: 1 1 auto;
       min-width: 320px;
-      box-shadow: 0 0 40px rgba(59, 130, 246, 0.05);
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.02);
       transition: box-shadow 0.4s;
     }
     .ticker-box-wrapper:hover {
-      box-shadow: 0 0 70px rgba(59, 130, 246, 0.15);
+      box-shadow: 0 0 70px rgba(0, 212, 255, 0.08);
     }
     @property --angle {
       syntax: '<angle>';
@@ -557,7 +795,7 @@
     }
     .ticker-vertical span::before {
       content: "▸ ";
-      color: #60a5fa;
+      color: #00d4ff;
       font-weight: 900;
       margin-right: 6px;
     }
@@ -577,13 +815,13 @@
       letter-spacing: 0.5px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       animation: pulseBadge 2.4s ease-in-out infinite;
-      border: 1px solid rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(0, 212, 255, 0.06);
       position: relative;
       z-index: 2;
     }
     @keyframes pulseBadge {
       0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-      50% { transform: scale(1.04); box-shadow: 0 8px 35px rgba(59, 130, 246, 0.15); }
+      50% { transform: scale(1.04); box-shadow: 0 8px 35px rgba(0, 212, 255, 0.08); }
     }
     .joining-badge i {
       color: #facc15;
@@ -609,13 +847,13 @@
 
     /* ===== GLASS CARDS ===== */
     .glass-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-radius: 1.5rem;
       padding: 1.8rem;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.04);
       transition: 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
       animation: fadeInUp 0.8s ease forwards;
       opacity: 0;
@@ -630,7 +868,7 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.04), transparent 60%);
+      background: radial-gradient(circle at 30% 40%, rgba(0, 212, 255, 0.03), transparent 60%);
       opacity: 0;
       transition: opacity 0.6s;
       pointer-events: none;
@@ -640,9 +878,9 @@
     }
     .glass-card:hover {
       transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 24px 50px -12px rgba(59, 130, 246, 0.15);
-      border-color: rgba(59, 130, 246, 0.2);
-      background: rgba(15, 23, 42, 0.85);
+      box-shadow: 0 24px 50px -12px rgba(0, 212, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.08);
+      background: rgba(15, 23, 42, 0.75);
     }
     .glass-card:nth-child(1) { animation-delay: 0.05s; }
     .glass-card:nth-child(2) { animation-delay: 0.12s; }
@@ -668,7 +906,7 @@
     /* ===== SKILL TAGS ===== */
     .skill-tag {
       display: inline-block;
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(0, 212, 255, 0.06);
       backdrop-filter: blur(4px);
       padding: 5px 16px;
       border-radius: 30px;
@@ -677,26 +915,26 @@
       font-weight: 600;
       transition: 0.3s ease;
       cursor: default;
-      border: 1px solid rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.04);
       color: #cbd5e1;
     }
     .skill-tag:hover {
-      background: #3b82f6;
-      color: white;
+      background: #00d4ff;
+      color: #0a0e1a;
       transform: scale(1.08) translateY(-3px);
-      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-      border-color: #3b82f6;
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
     }
 
     /* ===== PROJECT TECH & INTERN DURATION ===== */
     .project-tech, .intern-duration {
       font-size: 0.8rem;
-      color: #60a5fa;
+      color: #00d4ff;
       font-weight: 600;
       margin-top: 12px;
     }
     .intern-duration {
-      color: #a78bfa;
+      color: #7c3aed;
     }
 
     /* ===== RESPONSIBILITY ITEMS ===== */
@@ -705,13 +943,13 @@
       align-items: flex-start;
       gap: 12px;
       padding: 6px 0;
-      border-bottom: 1px solid rgba(59, 130, 246, 0.06);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.04);
     }
     .responsibility-item:last-child {
       border-bottom: none;
     }
     .responsibility-item i {
-      color: #60a5fa;
+      color: #00d4ff;
       font-size: 1.1rem;
       margin-top: 3px;
       flex-shrink: 0;
@@ -738,7 +976,7 @@
       border-radius: 1.5rem;
       padding: 1.8rem;
       margin-bottom: 2rem;
-      border: 1px dashed rgba(59, 130, 246, 0.2);
+      border: 1px dashed rgba(0, 212, 255, 0.1);
       color: #e2e8f0;
     }
     .cert-upload-area h3 {
@@ -764,14 +1002,14 @@
       width: 100%;
       padding: 10px 16px;
       border-radius: 40px;
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(0, 212, 255, 0.1);
       transition: 0.3s;
       background: rgba(15, 23, 42, 0.6);
       color: #f1f5f9;
     }
     .upload-field input:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 4px rgba(59,130,246,0.1);
+      border-color: #00d4ff;
+      box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.05);
       outline: none;
       background: rgba(15, 23, 42, 0.8);
     }
@@ -779,7 +1017,7 @@
       color: #64748b;
     }
     .btn-upload {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      background: linear-gradient(135deg, #00d4ff, #7c3aed);
       border: none;
       color: white;
       padding: 10px 32px;
@@ -787,11 +1025,11 @@
       font-weight: 600;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(59,130,246,0.2);
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
     }
     .btn-upload:hover {
       transform: scale(0.96);
-      box-shadow: 0 8px 30px rgba(59,130,246,0.35);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.25);
     }
     .cert-grid {
       display: grid;
@@ -818,7 +1056,7 @@
       background: #1e293b;
       margin-bottom: 8px;
       transition: 0.4s;
-      border: 1px solid rgba(59,130,246,0.1);
+      border: 1px solid rgba(0, 212, 255, 0.04);
     }
     .cert-card:hover .cert-img {
       transform: scale(1.04);
@@ -865,26 +1103,26 @@
     }
     .contact-item:hover {
       transform: translateX(10px);
-      color: #60a5fa;
+      color: #00d4ff;
     }
     .contact-item i {
       width: 40px;
       height: 40px;
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(0, 212, 255, 0.06);
       backdrop-filter: blur(4px);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      color: #60a5fa;
+      color: #00d4ff;
       transition: 0.3s;
-      border: 1px solid rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.04);
     }
     .contact-item:hover i {
-      background: #3b82f6;
-      color: white;
+      background: #00d4ff;
+      color: #0a0e1a;
       transform: scale(1.1) rotate(-5deg);
-      border-color: #3b82f6;
+      border-color: #00d4ff;
     }
     .contact-card-highlight {
       background: rgba(15, 23, 42, 0.6);
@@ -892,12 +1130,12 @@
       padding: 1.2rem 2rem;
       border-radius: 2rem;
       font-weight: 600;
-      border: 1px solid rgba(59,130,246,0.1);
+      border: 1px solid rgba(0, 212, 255, 0.04);
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       color: #e2e8f0;
     }
     .contact-card-highlight i {
-      color: #60a5fa;
+      color: #00d4ff;
       margin-right: 8px;
     }
 
@@ -910,7 +1148,7 @@
       animation: fadeInUp 1s ease 1.5s both;
       background: rgba(8, 11, 22, 0.5);
       backdrop-filter: blur(8px);
-      border-top: 1px solid rgba(59, 130, 246, 0.05);
+      border-top: 1px solid rgba(0, 212, 255, 0.03);
       position: relative;
       z-index: 2;
     }
@@ -988,13 +1226,86 @@
       .carousel-card p {
         font-size: 0.85rem;
       }
+      .binary-rain .bin { font-size: 1rem; }
+      .ds-terms .term { font-size: 0.9rem; }
+      .tech-icons-bg .icon-bg { font-size: 1.5rem; }
+      .orb-1, .orb-2, .orb-3, .orb-4, .orb-5 { display: none; }
+      .radar-bg { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ===== NETWORK CANVAS ===== -->
+<!-- ============================================================ -->
+<!-- ===== BRIGHTER DATA SCIENCE BACKGROUND ELEMENTS ===== -->
+<!-- ============================================================ -->
+
+<!-- 1. Animated Gradient -->
+<div class="bg-ds"></div>
+
+<!-- 2. Glowing Orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="orb orb-4"></div>
+<div class="orb orb-5"></div>
+
+<!-- 3. Data Grid -->
+<div class="data-grid"></div>
+
+<!-- 4. Binary Rain -->
+<div class="binary-rain">
+  <span class="bin">0</span><span class="bin">1</span><span class="bin">0</span><span class="bin">1</span>
+  <span class="bin">0</span><span class="bin">1</span><span class="bin">0</span><span class="bin">1</span>
+  <span class="bin">0</span><span class="bin">1</span><span class="bin">0</span><span class="bin">1</span>
+</div>
+
+<!-- 5. Floating Data Science Terms -->
+<div class="ds-terms">
+  <span class="term">Data Science</span>
+  <span class="term">Machine Learning</span>
+  <span class="term">Artificial Intelligence</span>
+  <span class="term">Deep Learning</span>
+  <span class="term">Python</span>
+  <span class="term">SQL</span>
+  <span class="term">R</span>
+  <span class="term">Tableau</span>
+  <span class="term">Big Data</span>
+  <span class="term">Analytics</span>
+  <span class="term">TensorFlow</span>
+  <span class="term">PyTorch</span>
+</div>
+
+<!-- 6. Floating Tech Icons -->
+<div class="tech-icons-bg">
+  <i class="fab fa-html5 icon-bg"></i>
+  <i class="fab fa-css3-alt icon-bg"></i>
+  <i class="fab fa-js icon-bg"></i>
+  <i class="fab fa-react icon-bg"></i>
+  <i class="fab fa-node icon-bg"></i>
+  <i class="fab fa-php icon-bg"></i>
+  <i class="fab fa-git-alt icon-bg"></i>
+  <i class="fas fa-database icon-bg"></i>
+  <i class="fab fa-bootstrap icon-bg"></i>
+  <i class="fab fa-python icon-bg"></i>
+  <i class="fas fa-cloud icon-bg"></i>
+  <i class="fas fa-code icon-bg"></i>
+</div>
+
+<!-- 7. Neural Network Canvas -->
 <canvas id="networkCanvas"></canvas>
+
+<!-- 8. Radar Scanner -->
+<div class="radar-bg">
+  <div class="radar-ring"></div>
+  <div class="radar-ring"></div>
+  <div class="radar-ring"></div>
+  <div class="radar-line"></div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ===== END OF BACKGROUND ===== -->
+<!-- ============================================================ -->
 
 <!-- ===== CONTENT WRAPPER ===== -->
 <div class="content-wrapper">
@@ -1006,7 +1317,7 @@
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#services">Services</a>
+        <a href="services-pricing.html">Services</a>
         <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#responsibilities">Responsibilities</a>
@@ -1035,55 +1346,50 @@
 
         <div class="degree">🎓 B.E. Computer Science & Engineering (Data Science) | Diploma in Computer Engineering</div>
 
-     <<!-- WELCOME TICKER -->
-<div class="welcome-ticker">
-  <div class="ticker-track">
-    <<span>
-Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Technology, Learning and Innovation • Welcome to My Portfolio
-</span>
-  </div>
-</div>
-
+        <!-- WELCOME TICKER -->
+        <div class="welcome-ticker">
+          <div class="ticker-track">
+            <span>
+              Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Technology, Learning and Innovation • Welcome to My Portfolio
+            </span>
+          </div>
+        </div>
 
         <!-- ===== SERVICES CAROUSEL (With Title & Auto-Rotation) ===== -->
-<div class="services-carousel-wrapper">
-  <h3 class="services-title">
-    <i class="fas fa-cogs" style="color: #f59e0b;"></i> What I Build for My client 
-    <span class="auto-badge">⏵ Auto‑rotate</span>
-  </h3>
+        <div class="services-carousel-wrapper">
+          <h3 class="services-title">
+            <i class="fas fa-cogs" style="color: #00d4ff;"></i> What I Build for My client
+            <span class="auto-badge">⏵ Auto‑rotate</span>
+          </h3>
 
-  <div class="services-carousel">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-card">
-        <div class="icon-wrap"><i class="fas fa-file-alt" style="color:#f59e0b;"></i></div>
-        <h4>Resume Building</h4>
-        <p>Professional, ATS-friendly resume tailored to your profile</p>
-      </div>
-      <div class="carousel-card">
-        <div class="icon-wrap"><i class="fas fa-laptop-code" style="color:#60a5fa;"></i></div>
-        <h4>Portfolio Website</h4>
-        <p>Modern personal or professional portfolio with stunning design</p>
-      </div>
-      <div class="carousel-card">
-        <div class="icon-wrap"><i class="fas fa-layer-group" style="color:#a78bfa;"></i></div>
-        <h4>Resume + Portfolio Package</h4>
-        <p>Complete personal branding – resume + website together</p>
-      </div>
-      <div class="carousel-card">
-        <div class="icon-wrap"><i class="fas fa-code" style="color:#34d399;"></i></div>
-        <h4>Final year Project based on Website</h4>
-        <p> perfect for college projects</p>
-      </div>
-      <div class="carousel-card">
-        <div class="icon-wrap"><i class="fas fa-mobile-alt" style="color:#f472b6;"></i></div>
-        <h4>professional Website</h4>
-        <p>For business people ,schools and colleges and IT companys </p>
-      </div>
-    </div>
-    <div class="carousel-dots" id="carouselDots"></div>
-    <a href="#services" class="carousel-cta">👇 See all details &amp; pricing →</a>
-  </div>
-</div>
+          <div class="services-carousel">
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-card">
+                <div class="icon-wrap"><i class="fas fa-file-alt" style="color:#00d4ff;"></i></div>
+                <h4>Resume Building</h4>
+                <p>Professional, ATS-friendly resume tailored to your profile</p>
+              </div>
+              <div class="carousel-card">
+                <div class="icon-wrap"><i class="fas fa-laptop-code" style="color:#00ff87;"></i></div>
+                <h4>Portfolio Website</h4>
+                <p>Modern personal or professional portfolio with stunning design</p>
+              </div>
+              <div class="carousel-card">
+                <div class="icon-wrap"><i class="fas fa-code" style="color:#7c3aed;"></i></div>
+                <h4>Final year Project based on Website</h4>
+                <p> perfect for college projects</p>
+              </div>
+              <div class="carousel-card">
+                <div class="icon-wrap"><i class="fas fa-mobile-alt" style="color:#f472b6;"></i></div>
+                <h4>professional Website</h4>
+                <p>For business people ,schools and colleges and IT companys </p>
+              </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+            <a href="services-pricing.html" class="carousel-cta">View Details →</a>
+          </div>
+        </div>
+
         <!-- JOB TICKER -->
         <div class="job-ticker">
           <div class="ticker-label">
@@ -1094,10 +1400,12 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
               <div class="ticker-vertical">
                 <span>Lecturer / Assistant Lecturer</span>
                 <span>Web Developer</span>
+                <span>Technical support </span>
                 <span>Customer Care Representative</span>
                 <span>Computer Teacher (School)</span>
                 <span>Lecturer / Assistant Lecturer</span>
                 <span>Web Developer</span>
+                <span>Technical support </span>
                 <span>Customer Care Representative</span>
                 <span>Computer Teacher (School)</span>
               </div>
@@ -1115,94 +1423,9 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     <section id="about">
       <div class="container">
         <h2 class="section-title">About Me</h2>
-        <div style="max-width: 900px; background: rgba(15,23,42,0.6); backdrop-filter: blur(8px); padding: 2rem; border-radius: 1.5rem; border: 1px solid rgba(59,130,246,0.08); color: #e2e8f0;">
-          <p><strong>Career Objective:</strong> Motivated and dedicated B.E. Computer Science and Engineering (Data Science) graduate seeking opportunities as a Lecturer/Assistant Lecturer, Web Developer, Customer Care Representative, or Computer Teacher. Eager to apply my technical knowledge, communication skills, and passion for teaching to contribute effectively to an organization's growth. Committed to continuous learning, professional development, and delivering high-quality results. Available for immediate joining and ready to take on new challenges with enthusiasm and dedication.</p>
+        <div style="max-width: 900px; background: rgba(15,23,42,0.6); backdrop-filter: blur(8px); padding: 2rem; border-radius: 1.5rem; border: 1px solid rgba(0,212,255,0.06); color: #e2e8f0;">
+          <p><strong>Career Objective:</strong> Motivated and dedicated B.E. Computer Science and Engineering (Data Science) graduate seeking opportunities as a Lecturer/Assistant Lecturer, Web Developer,Technical support,Customer Care Representative, or Computer Teacher. Eager to apply my technical knowledge, communication skills, and passion for teaching to contribute effectively to an organization's growth. Committed to continuous learning, professional development, and delivering high-quality results. Available for immediate joining and ready to take on new challenges with enthusiasm and dedication.</p>
           <p style="margin-top: 1.2rem;">📌 I have published research in JETNR (March 2026) on “Vendor Dashboard Performance Analysis System”. Experienced in full-stack development, mentorship (Class Representative, NSS Leader), and technical event organization. I thrive at the intersection of education and innovation.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SERVICES / PRICING SECTION ===== -->
-    <section id="services">
-      <div class="container">
-        <h2 class="section-title">Services &amp; Pricing</h2>
-        <p style="color: #94a3b8; margin-bottom: 2rem; font-size: 1.05rem;">
-          <i class="fas fa-info-circle" style="color: #f59e0b;"></i> 
-          <strong style="color: #f1f5f9;">Note:</strong> I provide the complete source code files only — deployment/hosting is <strong style="color: #f472b6;">not included</strong>.
-        </p>
-
-        <div class="grid-3">
-          <!-- Resume Building -->
-          <div class="glass-card" style="border-top: 4px solid #f59e0b;">
-            <div class="icon-wrap"><i class="fas fa-file-alt" style="color:#f59e0b; font-size: 2.5rem;"></i></div>
-            <h3>Resume Building</h3>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Professional, ATS-friendly resume tailored to your profile.</p>
-            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹200 – ₹600</div>
-            <div class="project-tech"><i class="fas fa-check-circle" style="color:#34d399;"></i> Based on your requirements</div>
-            <div class="project-tech"><i class="fas fa-file-pdf"></i> PDF + Word files provided</div>
-          </div>
-
-          <!-- Portfolio Website -->
-          <div class="glass-card" style="border-top: 4px solid #60a5fa;">
-            <div class="icon-wrap"><i class="fas fa-laptop-code" style="color:#60a5fa; font-size: 2.5rem;"></i></div>
-            <h3>Portfolio Website</h3>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Personal or professional portfolio with modern design.</p>
-            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹1,000 – ₹4,000</div>
-            <div class="project-tech"><i class="fas fa-check-circle" style="color:#34d399;"></i> Based on complexity</div>
-            <div class="project-tech"><i class="fas fa-html5"></i> HTML / CSS / JS · No Deployment</div>
-          </div>
-
-          <!-- Resume + Portfolio Package -->
-          <div class="glass-card" style="border-top: 4px solid #a78bfa;">
-            <div class="icon-wrap"><i class="fas fa-layer-group" style="color:#a78bfa; font-size: 2.5rem;"></i></div>
-            <h3>Resume + Portfolio Package</h3>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Complete personal branding – resume + website together.</p>
-            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹1,500 – ₹3,500</div>
-            <div class="project-tech"><i class="fas fa-check-circle" style="color:#34d399;"></i> Best value combo</div>
-            <div class="project-tech"><i class="fas fa-gem" style="color:#f59e0b;"></i> 2-in-1 package</div>
-          </div>
-
-          <!-- Final Year Project – Simple -->
-          <div class="glass-card" style="border-top: 4px solid #34d399;">
-            <div class="icon-wrap"><i class="fas fa-code" style="color:#34d399; font-size: 2.5rem;"></i></div>
-            <h3>Final Year Project – Simple</h3>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Basic static website with 3–5 pages.</p>
-            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹3,000 – ₹5,000</div>
-            <div class="project-tech"><i class="fas fa-file-code"></i> HTML · CSS · JavaScript</div>
-            <div class="project-tech"><i class="fas fa-times-circle" style="color:#f472b6;"></i> No deployment</div>
-          </div>
-
-          <!-- Final Year Project – Responsive -->
-          <div class="glass-card" style="border-top: 4px solid #f472b6;">
-            <div class="icon-wrap"><i class="fas fa-mobile-alt" style="color:#f472b6; font-size: 2.5rem;"></i></div>
-            <h3>Final Year Project – Responsive</h3>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Fully responsive website for all devices (mobile/tablet/desktop).</p>
-            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹4,000 – ₹7,000</div>
-            <div class="project-tech"><i class="fas fa-file-code"></i> HTML · CSS · JavaScript (Responsive)</div>
-            <div class="project-tech"><i class="fas fa-times-circle" style="color:#f472b6;"></i> No deployment</div>
-          </div>
-
-          <!-- Final Year Project – Login + Database -->
-          <div class="glass-card" style="border-top: 4px solid #facc15;">
-            <div class="icon-wrap"><i class="fas fa-database" style="color:#facc15; font-size: 2.5rem;"></i></div>
-            <h3>Final Year Project – Login + Database</h3>
-            <p style="font-size: 0.9rem; color: #94a3b8;">Full-stack project with authentication, database, and dynamic features.</p>
-            <div style="margin: 12px 0; font-size: 1.3rem; font-weight: 700; color: #f1f5f9;">₹8,000 – ₹15,000</div>
-            <div class="project-tech"><i class="fas fa-server"></i> React/Node/PHP + MySQL/MongoDB</div>
-            <div class="project-tech"><i class="fas fa-times-circle" style="color:#f472b6;"></i> No deployment</div>
-          </div>
-        </div>
-
-        <!-- Contact CTA -->
-        <div style="margin-top: 2.5rem; text-align: center; background: rgba(15,23,42,0.4); border-radius: 1.5rem; padding: 2rem; border: 1px solid rgba(245,158,11,0.08);">
-          <p style="font-size: 1.2rem; color: #e2e8f0;">
-            <i class="fas fa-handshake" style="color: #f59e0b; font-size: 1.8rem;"></i>
-          </p>
-          <h3 style="color: #f1f5f9; margin: 8px 0;">Ready to get started?</h3>
-          <p style="color: #94a3b8; margin-bottom: 1rem;">Contact me with your requirements, and I'll give you a custom quote.</p>
-          <a href="#contact" style="display: inline-block; background: #f59e0b; color: #0a0e1a; padding: 10px 32px; border-radius: 40px; text-decoration: none; font-weight: 700; transition: 0.3s;">
-            <i class="fas fa-envelope"></i> Contact Me
-          </a>
         </div>
       </div>
     </section>
@@ -1212,8 +1435,8 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
       <div class="container">
         <h2 class="section-title">Education</h2>
         <div class="grid-2">
-          <div class="glass-card"><div class="icon-wrap"><i class="fas fa-university" style="color:#3b82f6;"></i></div><h3>B.E. CSE (Data Science)</h3><p>Annamalai University, Chidambaram<br><strong style="color:#f1f5f9;">CGPA:</strong> 6.9/10 (till 6th sem)</p></div>
-          <div class="glass-card"><div class="icon-wrap"><i class="fas fa-university" style="color:#8b5cf6;"></i></div><h3>Diploma in Computer Engg</h3><p>Alagappa Govt Polytechnic College<br><strong style="color:#f1f5f9;">Percentage:</strong> 83.48%</p></div>
+          <div class="glass-card"><div class="icon-wrap"><i class="fas fa-university" style="color:#00d4ff;"></i></div><h3>B.E. CSE (Data Science)</h3><p>Annamalai University, Chidambaram<br><strong style="color:#f1f5f9;">CGPA:</strong> 6.9/10 (till 6th sem)</p></div>
+          <div class="glass-card"><div class="icon-wrap"><i class="fas fa-university" style="color:#7c3aed;"></i></div><h3>Diploma in Computer Engg</h3><p>Alagappa Govt Polytechnic College<br><strong style="color:#f1f5f9;">Percentage:</strong> 83.48%</p></div>
           <div class="glass-card"><div class="icon-wrap"><i class="fas fa-school" style="color:#f59e0b;"></i></div><h3>HSC (12th)</h3><p>SMSV Boys Hr. Sec. School<br><strong style="color:#f1f5f9;">Percentage:</strong> 47.33%</p></div>
           <div class="glass-card"><div class="icon-wrap"><i class="fas fa-school" style="color:#10b981;"></i></div><h3>SSLC (10th)</h3><p>Maharishi Vidya Mandir<br><strong style="color:#f1f5f9;">Percentage:</strong> 63.20%</p></div>
         </div>
@@ -1225,9 +1448,9 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
       <div class="container">
         <h2 class="section-title">Skills &amp; Competencies</h2>
         <div class="glass-card">
-          <h3><i class="fas fa-chalkboard-teacher" style="color:#3b82f6;"></i> Teaching &amp; Academic</h3>
+          <h3><i class="fas fa-chalkboard-teacher" style="color:#00d4ff;"></i> Teaching &amp; Academic</h3>
           <div><span class="skill-tag">Classroom Management</span><span class="skill-tag">Lesson Planning</span><span class="skill-tag">Student Mentoring</span><span class="skill-tag">Technical Training</span><span class="skill-tag">Lab Session Handling</span><span class="skill-tag">Presentation Skills</span><span class="skill-tag">Academic Assessment</span><span class="skill-tag">Curriculum Development</span></div>
-          <h3 style="margin-top: 1.2rem; color:#f1f5f9;"><i class="fas fa-code" style="color:#8b5cf6;"></i> Web Development</h3>
+          <h3 style="margin-top: 1.2rem; color:#f1f5f9;"><i class="fas fa-code" style="color:#7c3aed;"></i> Web Development</h3>
           <div><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">Responsive Design</span><span class="skill-tag">Front-End Dev</span><span class="skill-tag">UI Design</span><span class="skill-tag">Git (Basic)</span></div>
           <h3 style="margin-top: 1.2rem; color:#f1f5f9;"><i class="fas fa-headset" style="color:#f59e0b;"></i> Customer Care</h3>
           <div><span class="skill-tag">Customer Service</span><span class="skill-tag">Communication</span><span class="skill-tag">Call Handling</span><span class="skill-tag">Email Support</span><span class="skill-tag">Problem Solving</span><span class="skill-tag">Conflict Resolution</span><span class="skill-tag">CRM Basics</span></div>
@@ -1245,7 +1468,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         <h2 class="section-title">Responsibilities &amp; Leadership</h2>
         <div class="grid-2">
           <div class="glass-card">
-            <div class="icon-wrap"><i class="fas fa-users" style="color:#3b82f6;"></i></div>
+            <div class="icon-wrap"><i class="fas fa-users" style="color:#00d4ff;"></i></div>
             <h3>Class Representative</h3>
             <p>Annamalai University</p>
             <div class="responsibility-item"><i class="fas fa-check-circle"></i><span>Managed student-faculty relations and served as the primary communication bridge.</span></div>
@@ -1261,7 +1484,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
             <div class="responsibility-item"><i class="fas fa-check-circle"></i><span>Coordinated with local authorities for successful event execution.</span></div>
           </div>
           <div class="glass-card">
-            <div class="icon-wrap"><i class="fas fa-calendar-alt" style="color:#8b5cf6;"></i></div>
+            <div class="icon-wrap"><i class="fas fa-calendar-alt" style="color:#7c3aed;"></i></div>
             <h3>Event Organizer</h3>
             <p>Compsem'26 Departmental Symposium</p>
             <div class="responsibility-item"><i class="fas fa-check-circle"></i><span>Overall coordinator for the department's flagship technical symposium.</span></div>
@@ -1291,8 +1514,8 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
             <p>Departmental Technical Symposium</p>
             <span class="achievement-badge">🏆 Leadership</span>
           </div>
-          <div class="glass-card" style="background: linear-gradient(135deg, rgba(15,23,42,0.7), rgba(59,130,246,0.05)); border-left: 4px solid #3b82f6;">
-            <div class="icon-wrap"><i class="fas fa-award" style="color:#3b82f6;"></i></div>
+          <div class="glass-card" style="background: linear-gradient(135deg, rgba(15,23,42,0.7), rgba(0,212,255,0.05)); border-left: 4px solid #00d4ff;">
+            <div class="icon-wrap"><i class="fas fa-award" style="color:#00d4ff;"></i></div>
             <h3>Student Coordinator – Short Film Events</h3>
             <p>Compsem 2025 &amp; 2026</p>
             <span class="achievement-badge">🎬 Creative</span>
@@ -1332,7 +1555,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         <div class="grid-3">
           <!-- VG Digital Falcon -->
           <div class="glass-card">
-            <div class="icon-wrap"><i class="fas fa-building" style="color:#8b5cf6;"></i></div>
+            <div class="icon-wrap"><i class="fas fa-building" style="color:#7c3aed;"></i></div>
             <h3>VG Digital Falcon Pvt. Ltd.</h3>
             <p><strong style="color:#f1f5f9;">Data Analyst Intern</strong> | June 2025</p>
             <p style="margin-top: 8px;">Gained corporate exposure to enterprise software engineering workflows, analytical modeling frameworks, and agile project delivery standards. Worked on data cleaning, visualization, and reporting dashboards.</p>
@@ -1341,7 +1564,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
 
           <!-- AllRF & Yazhi -->
           <div class="glass-card">
-            <div class="icon-wrap"><i class="fas fa-paint-brush" style="color:#8b5cf6;"></i></div>
+            <div class="icon-wrap"><i class="fas fa-paint-brush" style="color:#7c3aed;"></i></div>
             <h3>AllRF &amp; Yazhi Software Solutions</h3>
             <p><strong style="color:#f1f5f9;">UI &amp; UX Intern</strong></p>
             <p style="margin-top: 8px;">Collaborated on conceptualizing application layers and front-end interface mockups to bridge business logic with intuitive user experiences. Designed wireframes and prototypes.</p>
@@ -1367,7 +1590,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         <div class="grid-3">
           <!-- Vendor Dashboard -->
           <div class="glass-card">
-            <div class="icon-wrap"><i class="fas fa-chart-line" style="color:#3b82f6;"></i></div>
+            <div class="icon-wrap"><i class="fas fa-chart-line" style="color:#00d4ff;"></i></div>
             <h3>Vendor Dashboard Performance Analysis</h3>
             <p><strong style="color:#f1f5f9;">B.E. Capstone Project</strong> | Guided by Dr. K. T. Meena Abarna</p>
             <p style="margin-top: 8px;">Role-based web platform (Vendor, Shop Owner, Admin) with dynamic sales KPIs, profit metrics, and live analytics. Engineered full-stack architecture using Node.js, Express, MongoDB, and Chart.js.</p>
@@ -1376,7 +1599,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
 
           <!-- Background Subtraction -->
           <div class="glass-card">
-            <div class="icon-wrap"><i class="fas fa-video" style="color:#3b82f6;"></i></div>
+            <div class="icon-wrap"><i class="fas fa-video" style="color:#00d4ff;"></i></div>
             <h3>Real-Time Background Subtraction</h3>
             <p><strong style="color:#f1f5f9;">Diploma Major Project</strong> | Computer Vision &amp; Surveillance</p>
             <p style="margin-top: 8px;">Engineered an automated surveillance application utilizing image processing and dynamic frame subtraction to isolate moving objects in real-time video streams.</p>
@@ -1399,8 +1622,8 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
         </div>
 
         <!-- Research Publication -->
-        <div style="margin-top: 2rem; background: rgba(15,23,42,0.5); backdrop-filter: blur(12px); border-radius: 1rem; padding: 1.8rem; border-left: 6px solid #3b82f6; border: 1px solid rgba(59,130,246,0.08);">
-          <h3 style="color:#f1f5f9;"><i class="fas fa-book-open" style="color:#3b82f6;"></i> Research Publication</h3>
+        <div style="margin-top: 2rem; background: rgba(15,23,42,0.5); backdrop-filter: blur(12px); border-radius: 1rem; padding: 1.8rem; border-left: 6px solid #00d4ff; border: 1px solid rgba(0,212,255,0.06);">
+          <h3 style="color:#f1f5f9;"><i class="fas fa-book-open" style="color:#00d4ff;"></i> Research Publication</h3>
           <p style="color:#e2e8f0;"><strong style="color:#f1f5f9;">Journal of Emerging Trends and Novel Research (JETNR)</strong> | March 2026 | Volume 4, Issue 3<br>
           “Vendor Dashboard Performance Analysis System: A Role-Based Web Platform for Retail Supply Chain Analytics” – Peer-reviewed research mapping multi-user environments to a unified database schema.</p>
         </div>
@@ -1433,7 +1656,6 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
             <div class="contact-item"><i class="fas fa-phone-alt"></i> +91 9524664613</div>
             <div class="contact-item"><i class="fas fa-envelope"></i> mohamedjabeer2003@gmail.com</div>
             <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Karaikudi, Tamil Nadu, India</div>
-            <div class="contact-item"><i class="fab fa-linkedin"></i> linkedin.com/in/mohamed-jabeer-j</div>
           </div>
           <div class="contact-card-highlight">
             <i class="fas fa-hand-peace"></i> Open for guest lectures &amp; full-time roles.
@@ -1444,7 +1666,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
   </main>
 
   <footer>
-    <p>© 2026 Mohamed Jabeer — Tech Portfolio | Built with <i class="fas fa-heart"></i> &amp; <i class="fas fa-code"></i></p>
+    <p>© 2026 Mohamed Jabeer — Tech Portfolio </p>
   </footer>
 
 </div>
@@ -1452,7 +1674,7 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
 <!-- ===== SCRIPTS ===== -->
 <script>
   // ============================================
-  // 1. DYNAMIC PARTICLE NETWORK
+  // 1. DATA SCIENCE NEURAL NETWORK CANVAS (Brighter)
   // ============================================
   (function() {
     const canvas = document.getElementById('networkCanvas');
@@ -1468,15 +1690,16 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     }
 
     function initParticles() {
-      const count = Math.min(120, Math.floor((width * height) / 12000));
+      const count = Math.min(120, Math.floor((width * height) / 10000));
       particles = [];
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          r: Math.random() * 2.5 + 1.5
+          vx: (Math.random() - 0.5) * 0.6,
+          vy: (Math.random() - 0.5) * 0.6,
+          r: Math.random() * 3 + 2,
+          pulse: Math.random() * Math.PI * 2
         });
       }
     }
@@ -1503,16 +1726,20 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
 
     function draw() {
       ctx.clearRect(0, 0, width, height);
+
+      // Update particles
       for (let p of particles) {
         p.x += p.vx;
         p.y += p.vy;
+        p.pulse += 0.02;
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
         p.x = Math.max(0, Math.min(width, p.x));
         p.y = Math.max(0, Math.min(height, p.y));
       }
 
-      const threshold = 150;
+      // Connections between particles
+      const threshold = 160;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -1520,6 +1747,9 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < threshold) {
             const alpha = 1 - (dist / threshold);
+            const pulse1 = Math.sin(particles[i].pulse) * 0.3 + 0.7;
+            const pulse2 = Math.sin(particles[j].pulse) * 0.3 + 0.7;
+            const combined = (pulse1 + pulse2) / 2;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -1527,15 +1757,22 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
               particles[i].x, particles[i].y,
               particles[j].x, particles[j].y
             );
-            gradient.addColorStop(0, `rgba(96, 165, 250, ${alpha * 0.5})`);
-            gradient.addColorStop(1, `rgba(167, 139, 250, ${alpha * 0.5})`);
+            const r = Math.random();
+            const color1 = r < 0.33 ? '0, 212, 255' : r < 0.66 ? '0, 255, 135' : '124, 58, 237';
+            const color2 = r < 0.33 ? '0, 255, 135' : r < 0.66 ? '124, 58, 237' : '0, 212, 255';
+            gradient.addColorStop(0, `rgba(${color1}, ${alpha * 0.5 * combined})`);
+            gradient.addColorStop(1, `rgba(${color2}, ${alpha * 0.5 * combined})`);
             ctx.strokeStyle = gradient;
-            ctx.lineWidth = alpha * 1.8;
+            ctx.lineWidth = alpha * 2.0 * combined;
+            ctx.shadowColor = 'rgba(0, 212, 255, 0.1)';
+            ctx.shadowBlur = 10;
             ctx.stroke();
+            ctx.shadowBlur = 0;
           }
         }
       }
 
+      // Mouse connections
       if (mouse.x > 0 && mouse.y > 0) {
         for (let p of particles) {
           const dx = p.x - mouse.x;
@@ -1546,30 +1783,38 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(236, 72, 153, ${alpha * 0.4})`;
-            ctx.lineWidth = alpha * 1.2;
+            ctx.strokeStyle = `rgba(124, 58, 237, ${alpha * 0.5})`;
+            ctx.lineWidth = alpha * 1.5;
+            ctx.shadowColor = 'rgba(124, 58, 237, 0.1)';
+            ctx.shadowBlur = 15;
             ctx.stroke();
+            ctx.shadowBlur = 0;
           }
         }
       }
 
+      // Draw glowing particles
       for (let p of particles) {
+        const pulse = Math.sin(p.pulse) * 0.3 + 0.7;
+        const radius = p.r * (0.6 + pulse * 0.4);
+        // Glow
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        const gradient = ctx.createRadialGradient(
-          p.x - 2, p.y - 2, 0,
-          p.x, p.y, p.r * 3
-        );
-        gradient.addColorStop(0, 'rgba(96, 165, 250, 0.9)');
-        gradient.addColorStop(0.5, 'rgba(96, 165, 250, 0.4)');
-        gradient.addColorStop(1, 'rgba(96, 165, 250, 0)');
-        ctx.fillStyle = gradient;
+        ctx.arc(p.x, p.y, radius * 3, 0, Math.PI * 2);
+        const grad = ctx.createRadialGradient(p.x - 2, p.y - 2, 0, p.x, p.y, radius * 3);
+        const r = Math.random();
+        const color = r < 0.33 ? '0, 212, 255' : r < 0.66 ? '0, 255, 135' : '124, 58, 237';
+        grad.addColorStop(0, `rgba(${color}, ${0.4 * pulse})`);
+        grad.addColorStop(0.4, `rgba(${color}, ${0.2 * pulse})`);
+        grad.addColorStop(1, `rgba(${color}, 0)`);
+        ctx.fillStyle = grad;
         ctx.fill();
+
+        // Core
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 0.5, 0, Math.PI * 2);
-        ctx.fillStyle = '#60a5fa';
-        ctx.shadowColor = '#3b82f6';
-        ctx.shadowBlur = 15;
+        ctx.arc(p.x, p.y, radius * 0.4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${color}, ${0.8 * pulse})`;
+        ctx.shadowColor = `rgba(${color}, 0.3)`;
+        ctx.shadowBlur = 20;
         ctx.fill();
         ctx.shadowBlur = 0;
       }
@@ -1599,38 +1844,36 @@ Hello, I'm Mohamed Jabeer • Computer Science Graduate • Passionate About Tec
     setTimeout(typeWriter, 500);
   });
 
- // ===== SERVICES CAROUSEL AUTO-ROTATION =====
-(function() {
-  const track = document.getElementById('carouselTrack');
-  const dots = document.getElementById('carouselDots');
-  if (!track || !dots) return;
-  const cards = track.querySelectorAll('.carousel-card');
-  let current = 0;
-  const total = cards.length;
+  // ===== SERVICES CAROUSEL AUTO-ROTATION =====
+  (function() {
+    const track = document.getElementById('carouselTrack');
+    const dots = document.getElementById('carouselDots');
+    if (!track || !dots) return;
+    const cards = track.querySelectorAll('.carousel-card');
+    let current = 0;
+    const total = cards.length;
 
-  cards.forEach((_, i) => {
-    const dot = document.createElement('span');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goTo(i));
-    dots.appendChild(dot);
-  });
+    cards.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dots.appendChild(dot);
+    });
 
-  function goTo(index) {
-    current = index;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.querySelectorAll('span').forEach((d, i) => d.classList.toggle('active', i === current));
-  }
+    function goTo(index) {
+      current = index;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.querySelectorAll('span').forEach((d, i) => d.classList.toggle('active', i === current));
+    }
 
-  // Auto-rotate every 4.5 seconds
-  let interval = setInterval(() => goTo((current + 1) % total), 4500);
+    let interval = setInterval(() => goTo((current + 1) % total), 4500);
 
-  // Pause on hover
-  const carousel = document.querySelector('.services-carousel');
-  carousel.addEventListener('mouseenter', () => clearInterval(interval));
-  carousel.addEventListener('mouseleave', () => {
-    interval = setInterval(() => goTo((current + 1) % total), 4500);
-  });
-})();
+    const carousel = document.querySelector('.services-carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(interval));
+    carousel.addEventListener('mouseleave', () => {
+      interval = setInterval(() => goTo((current + 1) % total), 4500);
+    });
+  })();
 
   // ============================================
   // 4. CERTIFICATION MANAGER
